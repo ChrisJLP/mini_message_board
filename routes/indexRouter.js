@@ -1,4 +1,4 @@
-const Router = require("express");
+const { Router } = require("express");
 const indexRouter = Router();
 
 const messages = [
@@ -14,6 +14,12 @@ const messages = [
   },
 ];
 
-indexRouter.get("", (req, res) => res.send("This is the index"));
+indexRouter.get("/", (req, res) => {
+  res.render("layout", {
+    title: "Mini Messageboard",
+    body: "index",
+    data: { messages: messages },
+  });
+});
 
 module.exports = indexRouter;

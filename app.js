@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
+const indexRouter = require("./routes/indexRouter.js");
 
-app.get("/", (req, res) => res.send("This is my mini message board"));
+app.use("/", indexRouter);
 
 app.get("/new", (req, res) => res.send("This is the new page"));
 

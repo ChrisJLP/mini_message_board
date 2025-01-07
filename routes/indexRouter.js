@@ -22,4 +22,21 @@ indexRouter.get("/", (req, res) => {
   });
 });
 
+indexRouter.get("/new", (req, res) => {
+  res.render("layout", {
+    title: "New message",
+    body: "form",
+    data: {},
+  });
+});
+
+indexRouter.post("/new", (req, res) => {
+  messages.push({
+    text: req.body.text,
+    user: req.body.user,
+    added: new Date(),
+  });
+  res.redirect("/");
+});
+
 module.exports = indexRouter;
